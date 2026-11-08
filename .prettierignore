@@ -1,0 +1,9 @@
+node_modules
+.next
+.next-contact-test
+.artifacts
+playwright-report
+test-results
+package-lock.json
+next-env.d.ts
+public/images

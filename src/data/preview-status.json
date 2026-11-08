@@ -1,0 +1,37 @@
+{
+  "mediaasia": {
+    "errors": [],
+    "desktop": "/images/projects/mediaasia-desktop.webp",
+    "title": "Media Asia Networks | Leading Advertising Agency in Kandy",
+    "capturedAt": "2026-11-08T13:36:21.062Z",
+    "mobile": "/images/projects/mediaasia-mobile.webp"
+  },
+  "kandybtl": {
+    "errors": [],
+    "desktop": "/images/projects/kandybtl-desktop.webp",
+    "title": "KandyBTL — #1 Outdoor Advertising Agency in Kandy, Sri Lanka",
+    "capturedAt": "2026-11-08T13:36:48.558Z",
+    "mobile": "/images/projects/kandybtl-mobile.webp"
+  },
+  "silonka": {
+    "errors": [],
+    "desktop": "/images/projects/silonka-desktop.webp",
+    "title": "Silonka — Buy Ceylon Cinnamon | True Cinnamon (Cinnamomum verum) | Ships to USA, UK & Europe",
+    "capturedAt": "2026-11-08T13:50:21.617Z",
+    "mobile": "/images/projects/silonka-mobile.webp"
+  },
+  "voceylon": {
+    "errors": [],
+    "desktop": "/images/projects/voceylon-desktop.webp",
+    "title": "Voice of Ceylon Travels — Authentic Sri Lanka Tour Packages",
+    "capturedAt": "2026-11-08T13:56:59.226Z",
+    "mobile": "/images/projects/voceylon-mobile.webp"
+  },
+  "guideceylon": {
+    "errors": [],
+    "desktop": "/images/projects/guideceylon-desktop.webp",
+    "title": "Guide You Ceylon | Wilderness Trekking & Camping Expeditions Sri Lanka",
+    "capturedAt": "2026-11-08T13:38:58.225Z",
+    "mobile": "/images/projects/guideceylon-mobile.webp"
+  }
+}
