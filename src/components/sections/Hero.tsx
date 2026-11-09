@@ -12,9 +12,6 @@ export function Hero() {
           </span>{" "}
           SOFTWARE ENGINEER / FULL-STACK DEVELOPER
         </p>
-        <p className="hero-location mono">
-          BASED IN SRI LANKA <span aria-hidden="true">↗</span>
-        </p>
       </Reveal>
       <Reveal delay={0.1} className="hero-title-wrap">
         <h1 id="hero-title">
@@ -62,7 +59,6 @@ export function Hero() {
       </Reveal>
       <div className="hero-footnote mono">
         <span>FRONTEND. BACKEND. EVERYTHING BETWEEN.</span>
-        <span>PORTFOLIO — VOL. 01</span>
       </div>
     </section>
   );

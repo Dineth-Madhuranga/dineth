@@ -53,7 +53,6 @@ export default function Image() {
         }}
       >
         <span>THOUGHTFUL INTERFACES. DEPENDABLE ENGINEERING.</span>
-        <span style={{ color: "#a64e34" }}>BASED IN SRI LANKA ↗</span>
       </div>
     </div>,
     size,
