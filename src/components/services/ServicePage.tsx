@@ -9,7 +9,9 @@ import { serviceSchema } from "@/lib/seo";
 import "./services.css";
 
 export function ServicePage({ service }: { service: Service }) {
-  const related = services.find(({ path }) => path !== service.path)!;
+  const related = services.find(
+    ({ path, audience }) => path !== service.path && audience === service.audience,
+  );
   return (
     <>
       <StructuredData data={serviceSchema(service)} />
@@ -80,17 +82,12 @@ export function ServicePage({ service }: { service: Service }) {
           <div className="service-section-heading">
             <p className="eyebrow">03 / REMOTE COLLABORATION</p>
             <h2 id="collaboration-title">
-              Colombo, Anuradhapura, Kandy.
+              {service.collaboration.heading}
               <br />
               <em>Connected by the work.</em>
             </h2>
           </div>
-          <p className="service-location-copy">
-            I work remotely with clients in Colombo, Anuradhapura, Kandy, and elsewhere in Sri
-            Lanka. Whether you need a new website or help with an application, email your
-            requirements or use the contact form to start a conversation about scope, timing, and
-            collaboration.
-          </p>
+          <p className="service-location-copy">{service.collaboration.description}</p>
           <ol className="service-process">
             {service.process.map((step) => (
               <li key={step.title}>
@@ -126,9 +123,11 @@ export function ServicePage({ service }: { service: Service }) {
               Email Dineth directly <ArrowUpRight size={16} aria-hidden="true" />
             </a>
           </div>
-          <Link className="service-related text-link" href={related.path}>
-            Explore {related.label.toLowerCase()} <ArrowUpRight size={16} aria-hidden="true" />
-          </Link>
+          {related && (
+            <Link className="service-related text-link" href={related.path}>
+              Explore {related.label.toLowerCase()} <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+          )}
         </section>
       </main>
       <Footer homePage={false} />

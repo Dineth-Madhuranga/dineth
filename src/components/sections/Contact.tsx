@@ -23,9 +23,8 @@ export function Contact() {
         <div className="contact-grid">
           <div className="contact-details">
             <p>
-              Have a project, a role, or an interesting problem?
-              <br />
-              I’d like to hear about it.
+              Have a project, a role, or an interesting problem? Share what you need, your target
+              timeline, and your time zone so we can discuss working together.
             </p>
             <a className="contact-email" href={`mailto:${site.email}`}>
               {site.email}

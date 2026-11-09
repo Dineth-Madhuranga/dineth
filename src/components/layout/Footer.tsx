@@ -18,7 +18,8 @@ export function Footer({ homePage = true }: { homePage?: boolean }) {
         <nav className="footer-services" aria-label="Development services">
           {services.map((service) => (
             <Link key={service.path} href={service.path}>
-              {service.label} in Sri Lanka <ArrowUpRight size={15} aria-hidden="true" />
+              {service.label} {service.audience === "worldwide" ? "worldwide" : "in Sri Lanka"}{" "}
+              <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
           ))}
         </nav>

@@ -1,9 +1,9 @@
 export const site = {
   name: "Dineth Madhuranga",
   title: "Software Engineer & Full-Stack Developer",
-  seoTitle: "Dineth Madhuranga | Web Developer & Software Engineer, Sri Lanka",
+  seoTitle: "Dineth Madhuranga | Freelance Web Developer & Software Engineer",
   description:
-    "Dineth Madhuranga, a web developer and software engineer in Sri Lanka. Explore business websites, e-commerce and custom applications, with remote collaboration.",
+    "Freelance web developer and software engineer for clients worldwide. Based in Sri Lanka, building React and Next.js websites, e-commerce and custom applications.",
   email: "dinethlaksitha@gmail.com",
   phone: "+94 78 518 2399",
   telephone: "tel:+94785182399",

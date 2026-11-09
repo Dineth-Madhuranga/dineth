@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { site, siteUrl } from "../data/site";
-import { serviceCities, type Service } from "../data/services";
+import { internationalMarkets, serviceCities, type Service } from "../data/services";
 
 export function shouldIndexSite() {
   if (process.env.NODE_ENV !== "production") return false;
@@ -24,7 +24,6 @@ export function pageMetadata(path: string, title: string, description: string): 
       description,
       url,
       siteName: site.name,
-      locale: "en_LK",
       type: "website",
       images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
     },
@@ -77,7 +76,7 @@ export function homeSchema() {
         name: site.name,
         url: `${siteUrl()}/`,
         description: site.description,
-        inLanguage: "en-LK",
+        inLanguage: "en",
         publisher: { "@id": `${siteUrl()}/#person` },
       },
       {
@@ -106,17 +105,20 @@ export function serviceSchema(service: Service) {
         description: service.description,
         url,
         provider: { "@id": `${siteUrl()}/#person` },
-        areaServed: [
-          { "@type": "Country", name: "Sri Lanka" },
-          ...serviceCities.map((name) => ({ "@type": "City", name })),
-        ],
+        areaServed:
+          service.audience === "worldwide"
+            ? ["Worldwide", ...internationalMarkets.map((name) => ({ "@type": "Country", name }))]
+            : [
+                { "@type": "Country", name: "Sri Lanka" },
+                ...serviceCities.map((name) => ({ "@type": "City", name })),
+              ],
       },
       {
         "@type": "WebPage",
         "@id": `${url}#webpage`,
         name: service.title,
         url,
-        inLanguage: "en-LK",
+        inLanguage: "en",
         isPartOf: { "@id": `${siteUrl()}/#website` },
         mainEntity: { "@id": `${url}#service` },
         breadcrumb: { "@id": `${url}#breadcrumb` },

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { services } from "@/data/services";
+import { internationalServices } from "@/data/services";
 
 export function Services() {
   return (
@@ -19,12 +19,12 @@ export function Services() {
           </h2>
         </div>
         <p>
-          Remote web development and software engineering for clients in Colombo, Anuradhapura,
-          Kandy, and across Sri Lanka.
+          Remote web development and software engineering worldwide. Based in Sri Lanka, I welcome
+          projects from the USA, UK, Canada, Australia, Germany, and beyond.
         </p>
       </div>
       <div className="service-links">
-        {services.map((service, index) => (
+        {internationalServices.map((service, index) => (
           <Link className="service-link" href={service.path} key={service.path}>
             <span className="mono">
               0{index + 1} / {index === 0 ? "WEBSITES & STOREFRONTS" : "APPLICATIONS & APIS"}

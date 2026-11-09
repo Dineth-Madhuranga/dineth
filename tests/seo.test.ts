@@ -35,6 +35,8 @@ test("public production is indexable; previews, local development, and missing o
           sitemap().map(({ url }) => url),
           [
             "https://www.dineth.ink/",
+            "https://www.dineth.ink/web-development",
+            "https://www.dineth.ink/software-engineering",
             "https://www.dineth.ink/web-development-sri-lanka",
             "https://www.dineth.ink/software-engineering-sri-lanka",
           ],

@@ -1,11 +1,13 @@
 export type Service = {
   path: string;
+  audience: "worldwide" | "sri-lanka";
   label: string;
   title: string;
   description: string;
   heading: string;
   introduction: string;
   summary: string;
+  collaboration: { heading: string; description: string };
   capabilities: { title: string; description: string }[];
   examples: { name: string; description: string; href: string; linkLabel: string }[];
   process: { title: string; description: string }[];
@@ -15,8 +17,29 @@ export type Service = {
 // These are remote service areas, not office locations.
 export const serviceCities = ["Colombo", "Anuradhapura", "Kandy"];
 
+// Priority markets for remote services, not office locations or past client claims.
+export const internationalMarkets = [
+  "United States",
+  "United Kingdom",
+  "Canada",
+  "Australia",
+  "Germany",
+];
+
+const localCollaboration = {
+  heading: "Colombo, Anuradhapura, Kandy.",
+  description:
+    "I work remotely with clients in Colombo, Anuradhapura, Kandy, and elsewhere in Sri Lanka. Whether you need a new website or help with an application, email your requirements or use the contact form to start a conversation about scope, timing, and collaboration.",
+};
+
+const internationalCollaboration = {
+  heading: "Based in Sri Lanka. Working worldwide.",
+  description: `I offer remote development for businesses in the ${internationalMarkets.join(", ")}, and beyond. Share your time zone and preferred meeting times with your brief. We can agree a practical schedule for calls, written feedback, and project reviews before work begins.`,
+};
+
 export const webDevelopment: Service = {
   path: "/web-development-sri-lanka",
+  audience: "sri-lanka",
   label: "Web development",
   title: "Web Developer in Sri Lanka | Dineth Madhuranga",
   description:
@@ -26,6 +49,7 @@ export const webDevelopment: Service = {
     "I’m Dineth Madhuranga, a freelance web developer and software engineer in Sri Lanka. I build websites that help people understand your business, explore what you offer, and get in touch.",
   summary:
     "From an agency website to an online storefront, the work starts with your customers and the task they need to complete. I bring together responsive interfaces, application development, and deployment so the design and the functionality work as one.",
+  collaboration: localCollaboration,
   capabilities: [
     {
       title: "Business & tourism websites",
@@ -114,6 +138,7 @@ export const webDevelopment: Service = {
 
 export const softwareEngineering: Service = {
   path: "/software-engineering-sri-lanka",
+  audience: "sri-lanka",
   label: "Software engineering",
   title: "Software Engineer in Sri Lanka | Dineth Madhuranga",
   description:
@@ -123,6 +148,7 @@ export const softwareEngineering: Service = {
     "I’m Dineth Madhuranga, a full-stack software engineer in Sri Lanka. I work on the interfaces, APIs, and data behind business applications, from customer storefronts to tools used by internal teams.",
   summary:
     "My experience includes full-stack engineering at Media Asia Networks and independent development work. I connect frontend requirements with application logic, database design, and deployment, with attention to how people use the system day to day.",
+  collaboration: localCollaboration,
   capabilities: [
     {
       title: "Custom web applications",
@@ -209,4 +235,168 @@ export const softwareEngineering: Service = {
   ],
 };
 
-export const services = [webDevelopment, softwareEngineering];
+export const internationalWebDevelopment: Service = {
+  path: "/web-development",
+  audience: "worldwide",
+  label: "Web development",
+  title: "Freelance Web Developer | React & Next.js | Dineth Madhuranga",
+  description:
+    "Hire Dineth Madhuranga for remote web development worldwide. React and Next.js business websites, e-commerce stores, and improvements to your existing site.",
+  heading: "A freelance web developer for your next project.",
+  introduction:
+    "I’m Dineth Madhuranga, a web developer based in Sri Lanka offering remote collaboration worldwide. I help businesses turn their services, products, and ideas into websites people can use with confidence.",
+  summary:
+    "Whether you’re commissioning a business website or need development support for an existing design, we can start with your audience and the result you need. My work covers React and Next.js interfaces, e-commerce, and the backend integrations that connect a website to your business.",
+  collaboration: internationalCollaboration,
+  capabilities: [
+    {
+      title: "Business websites that explain your offer",
+      description:
+        "Give visitors a clear path from understanding your service to making an inquiry. We can plan your page structure, project examples, and contact routes around the customers you want to reach, with responsive layouts for mobile and desktop.",
+    },
+    {
+      title: "React & Next.js implementation",
+      description:
+        "Turn a design or feature brief into reusable components, responsive pages, and connected application features using React, Next.js, and TypeScript. For an existing site, share the current stack and constraints so we can assess how new work should fit.",
+    },
+    {
+      title: "E-commerce websites",
+      description:
+        "Build product browsing, customer accounts, and shopping workflows using a custom application or WordPress and WooCommerce. Your catalogue, order process, and required integrations guide the scope. Payment and shipping requirements need to be agreed for the markets you serve.",
+    },
+    {
+      title: "Website fixes & launch preparation",
+      description:
+        "Improve mobile layouts, page structure, metadata, images, and key interactions on an existing website. Before launch, we can review the customer journey and hosting setup, then define which future updates and maintenance belong in the project.",
+    },
+  ],
+  examples: webDevelopment.examples,
+  process: [
+    {
+      title: "Share your audience and brief",
+      description:
+        "Send your website or designs, the countries and customers you want to reach, required pages and features, and your target launch date. Include your time zone and who will provide copy, images, and feedback.",
+    },
+    {
+      title: "Agree scope and review points",
+      description:
+        "Before development, we can define the deliverables, content responsibilities, and milestones. Agree how previews and written feedback will be shared so decisions can move forward between scheduled calls.",
+    },
+    {
+      title: "Review, launch, and hand over",
+      description:
+        "Check the agreed pages and interactions on mobile and desktop. Plan domain and hosting access, deployment, and handover together, with maintenance and any further work discussed separately in the scope.",
+    },
+  ],
+  questions: [
+    {
+      question: "Can I hire you from outside Sri Lanka?",
+      answer:
+        "Yes. I welcome remote project inquiries from the USA, UK, Canada, Australia, Germany, and other countries. I’m based in Sri Lanka; collaboration is remote. Share your requirements so we can discuss fit, timing, and scope.",
+    },
+    {
+      question: "How would we work across time zones?",
+      answer:
+        "Sri Lanka uses UTC+5:30. Include your time zone and preferred call times in your inquiry so we can agree suitable overlap. Written briefs, preview links, and consolidated feedback can keep the project moving between calls. Meeting availability is agreed for each project.",
+    },
+    {
+      question: "Can you work from an existing design or improve my current website?",
+      answer:
+        "Yes. Send the design files or website URL, explain what is already working, and list the changes you need. For existing applications, include the framework and hosting details if you know them. We can assess targeted improvements or a rebuild from that starting point.",
+    },
+    {
+      question: "How are international projects priced?",
+      answer:
+        "The estimate depends on the design, content, features, and integrations. Share your budget range and preferred billing currency with the brief. We will need to agree the quote currency, payment method, milestones, and any ongoing support before work starts.",
+    },
+    {
+      question: "Can we discuss a project in English from Germany or another country?",
+      answer:
+        "Yes. You can send your brief in English from any country. If your website needs German or another language, include that requirement and who will supply and review translations so the content workflow can be included in the scope.",
+    },
+  ],
+};
+
+export const internationalSoftwareEngineering: Service = {
+  path: "/software-engineering",
+  audience: "worldwide",
+  label: "Software engineering",
+  title: "Freelance Software Engineer | Remote Full-Stack Development",
+  description:
+    "Remote freelance software engineer for custom web applications, REST APIs, and dashboards. Work with Dineth Madhuranga from the USA, UK, Canada, or worldwide.",
+  heading: "Remote software engineering for your business.",
+  introduction:
+    "I’m Dineth Madhuranga, a full-stack software engineer based in Sri Lanka. I offer remote development worldwide for businesses that need custom web applications, backend integrations, and tools built around their team’s work.",
+  summary:
+    "A useful application starts with the people using it and the information they need. My experience spans frontend interfaces, API development, databases, and deployment. We can scope a new application or a defined set of improvements to a system you already use.",
+  collaboration: internationalCollaboration,
+  capabilities: [
+    {
+      title: "Custom applications & internal tools",
+      description:
+        "Replace a difficult manual workflow with an application for collecting, reviewing, and managing information. We can define user roles, key screens, and acceptance criteria before building the interface and the application logic behind it.",
+    },
+    {
+      title: "Backend services & API integrations",
+      description:
+        "Connect your interface to data and external services through REST APIs. My stack includes Node.js and Express, Java and Spring Boot, and Python and FastAPI. Authentication, validation, and error handling belong in the scope alongside successful requests.",
+    },
+    {
+      title: "Dashboards & access control",
+      description:
+        "Give each user the information and actions their role needs. Reporting screens, record management, and submission workflows can be designed around real tasks, with access rules discussed before implementation.",
+    },
+    {
+      title: "Existing systems & deployment",
+      description:
+        "Extend a full-stack application, investigate a production issue, or prepare a release. Share the repository structure, database, hosting setup, and current limitations. My experience includes MongoDB, MySQL, AWS, Google Cloud, and Vercel.",
+    },
+  ],
+  examples: softwareEngineering.examples,
+  process: [
+    {
+      title: "Map the problem and constraints",
+      description:
+        "Describe who uses the system, the workflow that needs to change, and the data it handles. Include existing technology, integrations, and any security or hosting requirements your team needs the project to meet.",
+    },
+    {
+      title: "Define a reviewable delivery plan",
+      description:
+        "Agree application boundaries, acceptance criteria, and milestones. For remote teamwork, identify who reviews changes, how access will be provided, and when calls or written updates fit your team’s time zone.",
+    },
+    {
+      title: "Validate and prepare the release",
+      description:
+        "Review core workflows, permissions, and failure cases against the agreed scope. Plan deployment, configuration, and a technical handover with your team. Discuss monitoring, maintenance, and later improvements before adding them to the project.",
+    },
+  ],
+  questions: [
+    {
+      question: "Can you collaborate with an international team?",
+      answer:
+        "Yes. I offer remote software development for teams in the USA, UK, Canada, Australia, Germany, and elsewhere. Send your requirements, current technology, and time zone so we can assess the work and agree a collaboration schedule.",
+    },
+    {
+      question: "Can you extend our existing application?",
+      answer:
+        "Share the stack, the features or issues involved, and any documentation you can provide. An initial review helps determine the integration points, testing needs, and whether the work fits my experience before we agree a scope.",
+    },
+    {
+      question: "What should we prepare before discussing an estimate?",
+      answer:
+        "Describe user roles, the main workflows, required integrations, and your target release date. Example screens and anonymized sample data can help explain the problem. Include a budget range and preferred billing currency; scope, payment terms, and milestones need to be agreed before starting.",
+    },
+    {
+      question: "How do remote reviews and handover work?",
+      answer:
+        "We can agree written acceptance criteria and review points for each milestone. Share your team’s time zone and preferred workflow so calls, demonstrations, and feedback can be planned. Repository access, deployment configuration, documentation, and any ongoing support should be defined in the handover scope.",
+    },
+  ],
+};
+
+export const internationalServices = [
+  internationalWebDevelopment,
+  internationalSoftwareEngineering,
+];
+export const localServices = [webDevelopment, softwareEngineering];
+export const services = [...internationalServices, ...localServices];
