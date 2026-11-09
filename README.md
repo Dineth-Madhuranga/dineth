@@ -29,6 +29,8 @@ The production browser suite runs on port 3100. Contact UI tests use a separate 
 
 ## Content and visual system
 
+For search metadata, service pages, recommended query targets, and the post-deployment Search Console steps, see [the SEO launch guide](docs/seo-launch.md).
+
 - `src/data/site.ts`: personal details, social links, availability configuration.
 - `src/data/projects.ts`: five curated live projects and verified public source links.
 - `src/data/experience.ts` and `skills.ts`: career, education, and grouped capabilities.

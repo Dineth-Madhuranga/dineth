@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { site, siteUrl } from "@/data/site";
+import { pageMetadata, shouldIndexSite } from "@/lib/seo";
 import "./globals.css";
 
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
@@ -21,29 +22,11 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  ...pageMetadata("/", site.seoTitle, site.description),
   metadataBase: new URL(siteUrl()),
-  title: "Dineth Madhuranga | Software Engineer & Full-Stack Developer",
-  description: site.description,
-  alternates: { canonical: "/" },
-  authors: [{ name: site.name }],
-  openGraph: {
-    title: `${site.name} — Thoughtful interfaces. Dependable engineering.`,
-    description: site.description,
-    url: "/",
-    siteName: site.name,
-    locale: "en_US",
-    type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${site.name} | Software Engineer`,
-    description: site.description,
-    images: ["/opengraph-image"],
-  },
-  robots: process.env.NEXT_PUBLIC_SITE_URL?.startsWith("https://")
-    ? { index: true, follow: true }
-    : { index: false, follow: false },
+  authors: [{ name: site.name, url: siteUrl() }],
+  creator: site.name,
+  robots: shouldIndexSite() ? { index: true, follow: true } : { index: false, follow: false },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f5f2eb" };
 

@@ -7,32 +7,21 @@ import { Expertise } from "@/components/sections/Expertise";
 import { Experience } from "@/components/sections/Experience";
 import { EngineeringProjects } from "@/components/sections/EngineeringProjects";
 import { Contact } from "@/components/sections/Contact";
-import { site, siteUrl } from "@/data/site";
+import { Services } from "@/components/sections/Services";
+import { StructuredData } from "@/components/seo/StructuredData";
+import { homeSchema } from "@/lib/seo";
 
 export default function Home() {
-  const person = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: site.name,
-    jobTitle: "Software Engineer",
-    url: siteUrl(),
-    email: site.email,
-    address: { "@type": "PostalAddress", addressCountry: "LK" },
-    sameAs: [site.github, ...(site.linkedinVerified ? [site.linkedin] : [])],
-    knowsAbout: ["Full-stack web development", "REST APIs", "Cloud deployment", "React", "Node.js"],
-  };
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }}
-      />
+      <StructuredData data={homeSchema()} />
       <Header />
       <main id="main-content">
         <Hero />
         <SelectedWork />
         <About />
         <Expertise />
+        <Services />
         <Experience />
         <EngineeringProjects />
         <Contact />

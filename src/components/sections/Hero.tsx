@@ -47,8 +47,8 @@ export function Hero() {
           </span>
         </a>
         <p>
-          I’m Dineth, a software engineer connecting thoughtful interfaces with dependable systems.
-          From the first interaction to the infrastructure behind it.
+          I’m Dineth Madhuranga, a software engineer and freelance web developer in Sri Lanka. I
+          build responsive websites, e-commerce stores, and custom web applications.
         </p>
         <div className="hero-actions">
           <a className="button button-dark" href="#work">

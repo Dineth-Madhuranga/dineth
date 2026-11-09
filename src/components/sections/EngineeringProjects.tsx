@@ -5,7 +5,11 @@ import { site } from "@/data/site";
 
 export function EngineeringProjects() {
   return (
-    <section className="engineering-section section" aria-labelledby="engineering-title">
+    <section
+      id="engineering"
+      className="engineering-section section"
+      aria-labelledby="engineering-title"
+    >
       <div className="container">
         <div className="section-intro">
           <SectionHeading number="05" label="BEYOND THE INTERFACE">

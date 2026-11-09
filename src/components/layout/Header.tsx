@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { navigation } from "@/data/site";
 
-export function Header() {
+export function Header({ homePage = true }: { homePage?: boolean }) {
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -19,12 +19,12 @@ export function Header() {
             (document.getElementById(item.id)?.getBoundingClientRect().top ?? Infinity) <= 180,
         )
         .at(-1);
-      if (current) setActive(current.id);
+      if (homePage && current) setActive(current.id);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [homePage]);
   useEffect(() => {
     if (!isOpen) return;
     const previous = document.body.style.overflow;
@@ -42,7 +42,11 @@ export function Header() {
     <>
       <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
         <div className="header-inner container">
-          <a className="wordmark" href="#home" aria-label="Dineth Madhuranga, home">
+          <a
+            className="wordmark"
+            href={homePage ? "#home" : "/"}
+            aria-label="Dineth Madhuranga, home"
+          >
             dm<span>.</span>
           </a>
           <span className="header-name">
@@ -54,15 +58,15 @@ export function Header() {
             {navigation.map((item) => (
               <a
                 key={item.id}
-                href={`#${item.id}`}
-                className={active === item.id ? "active" : ""}
-                aria-current={active === item.id ? "location" : undefined}
+                href={`${homePage ? "" : "/"}#${item.id}`}
+                className={homePage && active === item.id ? "active" : ""}
+                aria-current={homePage && active === item.id ? "location" : undefined}
               >
                 {item.label}
               </a>
             ))}
           </nav>
-          <a className="header-cta" href="#contact">
+          <a className="header-cta" href={homePage ? "#contact" : "/#contact"}>
             Let’s talk <ArrowUpRight size={17} />
           </a>
           <button
@@ -89,7 +93,7 @@ export function Header() {
         onClose={() => setIsOpen(false)}
       >
         <div className="mobile-menu-top">
-          <a className="wordmark" href="#home" onClick={close}>
+          <a className="wordmark" href={homePage ? "#home" : "/"} onClick={close}>
             dm<span>.</span>
           </a>
           <button autoFocus onClick={close} aria-label="Close navigation">
@@ -99,7 +103,7 @@ export function Header() {
         <p className="eyebrow">A LITTLE DIRECTION</p>
         <nav aria-label="Mobile navigation">
           {navigation.map((item, i) => (
-            <a key={item.id} href={`#${item.id}`} onClick={close}>
+            <a key={item.id} href={`${homePage ? "" : "/"}#${item.id}`} onClick={close}>
               <span className="mono">0{i + 1}</span>
               {item.label}
               <ArrowUpRight />
